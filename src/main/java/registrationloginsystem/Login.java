@@ -24,8 +24,6 @@ public class Login {
         this.lastName = lastName;
     }
 
-    // ---------- Validation methods return true or false ----------
-
     //Checks that the username contains an underscore and is no more than five characters long.
      public boolean checkUserName(String username) {
         // The null check stops the program crashing if no username is given
@@ -67,8 +65,6 @@ public class Login {
         return cellNumber != null && CELL_PATTERN.matcher(cellNumber).matches();
     }
 
-    // ---------- Messages shown when each detail is captured ----------
-
     // Returns the message for the username if it successful or  has a error. 
     public String captureUsername(String username) {
         if (checkUserName(username)) {
@@ -95,8 +91,6 @@ public class Login {
         return "Cell number is incorrectly formatted or does not contain an international code; "
                 + "please correct the number and try again.";
     }
-
-    // ---------- Registration and login ----------
 
     //Registers the user. Details are only stored if all three are valid.
     //Returns the message that says what happened.
