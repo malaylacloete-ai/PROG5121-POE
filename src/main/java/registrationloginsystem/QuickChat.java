@@ -158,7 +158,8 @@ public class QuickChat {
                 // 6. Once all the messages have been entered, show the total
                 if (entered == allowed) {
                     System.out.println("\nAll messages have been entered.");
-                    System.out.println("Total messages sent: " + message.returnTotalMessages());
+                    System.out.println("Total messages sent: " 
+                            + message.returnTotalMessages());
                     totalShown = true;
                 }
                 
@@ -175,7 +176,8 @@ public class QuickChat {
             System.out.println(lastMessage.printMessages());
             
             if (!totalShown) {
-                System.out.println("Total messages sent: " + lastMessage.returnTotalMessages());
+                System.out.println("Total messages sent: " 
+                        + lastMessage.returnTotalMessages());
             }
             
             } else {
