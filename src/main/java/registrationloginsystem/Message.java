@@ -146,6 +146,10 @@ public final class Message {
     }
 
     // Stores the message in a JSON file, all stored messages are written each time. 
+    // Reference for writing the messages to a file (FileWriter in storeMessage):
+    // Oracle. 2026. Class FileWriter. Java Platform, Standard Edition 8 API Specification.
+    // [Online]. Available at: https://docs.oracle.com/javase/8/docs/api/java/io/FileWriter.html
+    // [Accessed 17 October 2026].
     public void storeMessage() {
         storedMessages.add(this);
 
