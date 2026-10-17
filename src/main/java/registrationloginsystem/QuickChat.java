@@ -136,7 +136,7 @@ public class QuickChat {
                 System.out.println(message.sentMessage(choice));
 
                 if (choice == 1) {
-                    // 7. Full details in the order: ID, Hash, Recipient, Message
+                    // Full details in the order: ID, Hash, Recipient, Message
                     System.out.println(message.getDetails());
                     System.out.println("Number of messages sent: " 
                             + message.returnTotalMessages());
@@ -155,7 +155,7 @@ public class QuickChat {
                     }
                 }
 
-                // 6. Once all the messages have been entered, show the total
+                // Once all the messages have been entered, show the total
                 if (entered == allowed) {
                     System.out.println("\nAll messages have been entered.");
                     System.out.println("Total messages sent: " 
@@ -170,7 +170,7 @@ public class QuickChat {
             }
         }
 
-        // On quit, show the messages sent and the total (if not already shown)
+        // On quit, show the messages sent and the total 
         if (lastMessage != null) {
             System.out.println("\nMessages sent:");
             System.out.println(lastMessage.printMessages());
