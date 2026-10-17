@@ -26,6 +26,7 @@ public class Login {
 
     //Checks that the username contains an underscore and is no more than five characters long.
      public boolean checkUserName(String username) {
+         
         // The null check stops the program crashing if no username is given
         return username != null
                 && username.contains("_")
@@ -61,7 +62,6 @@ public class Login {
 
     //Checks that the cell number has an international code followed by a number of no more than ten digits.
     public boolean checkCellPhoneNumber(String cellNumber) {
-        // matches() is true only if the WHOLE text fits the pattern
         return cellNumber != null && CELL_PATTERN.matcher(cellNumber).matches();
     }
 
@@ -95,7 +95,7 @@ public class Login {
     //Registers the user. Details are only stored if all three are valid.
     //Returns the message that says what happened.
     public String registerUser(String username, String password, String cellNumber) {
-        // Check one detail at a time and stop at the first problem
+        // Check one detail at a time and stop at the first problem.
         if (!checkUserName(username)) {
             return captureUsername(username);
         }
