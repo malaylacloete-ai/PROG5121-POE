@@ -65,14 +65,14 @@ public class QuickChat2 {
             // Keep asking until each registration detail is correct
             String username;
             do {
-                System.out.print("Register - username: ");
+                System.out.print("Register with your username: ");
                 username = input.nextLine();
                 System.out.println(login.captureUsername(username));
             } while (!login.checkUserName(username));
             
             String password;
             do {
-                System.out.print("Register - password: ");
+                System.out.print("Register with your password: ");
                 password = input.nextLine();
                 System.out.println(login.capturePassword(password));
             } while (!login.checkPasswordComplexity(password));
