@@ -44,7 +44,8 @@ public final class Message {
     // Creates a random ten-digit number, leading zeros are kept, so it is a String.
     private static String generateMessageID() {
         long number = (long) (new Random().nextDouble() * 10_000_000_000L);
-        return String.format("%010d", number);
+        String digits = String.valueOf(10_000_000_000L + number);
+        return digits.substring(1);
     }
 
     // the following code does checks 
