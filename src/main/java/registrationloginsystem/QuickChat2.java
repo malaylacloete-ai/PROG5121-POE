@@ -56,8 +56,10 @@ public class QuickChat2 {
             
             System.out.print("Enter your first name: ");
             String firstName = input.nextLine();
+            
             System.out.print("Enter your last name: ");
             String lastName = input.nextLine();
+            
             Login login = new Login(firstName, lastName);
             
             // Keep asking until each registration detail is correct
