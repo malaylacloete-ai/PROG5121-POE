@@ -84,7 +84,7 @@ class MessageTest {
 
     // An automatically generated ID must be no more than ten characters
     @Test
-    void generatedMessageIDIsTenCharacters() {
+    void generatedMessageISIsTenCharacters() {
         Message generated = new Message(0, "+27718693002", "Hello there");
         assertTrue(generated.checkMessageID());
         assertEquals(10, generated.getMessageID().length());
@@ -123,5 +123,48 @@ class MessageTest {
     void printMessagesShowsSentMessages() {
         message1.sentMessage(1);
         assertTrue(message1.printMessages().contains("00:0:HITONIGHT"));
+    }
+   
+    @Test
+    void messageIDExactlyTenDigits() {
+        assertTrue(message1.checkMessageID());
+    }
+
+    @Test
+    void messageIDTooShortOrNotNumeric() {
+        Message tooShort = new Message("12345", 0, "+27718693002", "Hello there");
+        Message hasLetters = new Message("12345abcde", 0, "+27718693002", "Hello there");
+        assertFalse(tooShort.checkMessageID());
+        assertFalse(hasLetters.checkMessageID());
+    }
+
+    // The example from the task: first and last words, in capitals
+    @Test
+    void messageHashExampleFromTask() {
+        Message example = new Message("0012345678", 0, "+27718693002", "Hi thanks");
+        assertEquals("00:0:HITHANKS", example.createMessageHash());
+    }
+
+    // Punctuation is removed and extra spaces are ignored
+    @Test
+    void messageHashIgnoresPunctuationAndSpaces() {
+        Message spaced = new Message("0512345678", 3, "+27718693002", "  hello,   how are you today!!  ");
+        assertEquals("05:3:HELLOTODAY", spaced.createMessageHash());
+    }
+
+    // Disregard a message, then press 0 to delete it
+    @Test
+    void disregardedMessageCanBeDeleted() {
+        message2.sentMessage(2);
+        assertTrue(message2.deleteMessage());
+    }
+
+    // A sent message that is deleted is no longer counted
+    @Test
+    void deletedMessageIsNotCounted() {
+        message1.sentMessage(1);
+        assertEquals(1, message1.returnTotalMessages());
+        message1.deleteMessage();
+        assertEquals(0, message1.returnTotalMessages());
     }
 }
