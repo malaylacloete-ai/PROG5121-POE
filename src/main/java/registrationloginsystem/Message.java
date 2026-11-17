@@ -20,7 +20,7 @@ public class Message {
     private static String sender = "Unknown";
 
     static void setSender(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        sender = string; 
     }
 
     // Details of the message
@@ -49,6 +49,10 @@ public class Message {
         long number = (long) (new Random().nextDouble() * 10_000_000_000L);
         String digits = String.valueOf(10_000_000_000L + number);   
         return digits.substring(1);
+    }
+
+    Message() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
      // The following code does checks 
@@ -195,6 +199,7 @@ public class Message {
     public String getMessageHash() { return messageHash; }
     public String getRecipient() { return recipient; }
     public String getMessageText() { return messageText; }
+
 }
         
 
