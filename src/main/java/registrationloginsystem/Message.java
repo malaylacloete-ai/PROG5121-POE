@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 
 // The Message class represents one message in QuickChat.
 // It checks the details, creates the hash, and sends, stores or discards the message.
-public class Message {
+public final class Message {
 
     // Same cell number pattern as Part 1: + then country code then up to 10 digits
     private static final Pattern CELL_PATTERN = Pattern.compile("^\\+\\d{1,3}\\d{1,10}$");
@@ -51,9 +51,6 @@ public class Message {
         return digits.substring(1);
     }
 
-    Message() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 
      // The following code does checks 
     // Checks weither the message ID is no more than ten characters long.
