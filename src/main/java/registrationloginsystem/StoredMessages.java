@@ -1,5 +1,12 @@
 package registrationloginsystem;
 
+// Reference for reading the file:
+// Oracle. 2026. Class BufferedReader. Java Platform, Standard Edition 8 API Specification.
+// [Online]. Available at: https://docs.oracle.com/javase/8/docs/api/java/io/BufferedReader.html
+// [Accessed 18 November 2026].
+// Oracle. 2026. Class FileReader. Java Platform, Standard Edition 8 API Specification.
+// [Online]. Available at: https://docs.oracle.com/javase/8/docs/api/java/io/FileReader.html
+// [Accessed 18 November 2026].
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -47,7 +54,11 @@ public class StoredMessages {
         writeJson();
     }
 
-    // Reads the JSON file into the arrays
+     // Reads the JSON file into the arrays
+    // Reference for writing the file:
+   // Oracle. 2026. Class FileWriter. Java Platform, Standard Edition 8 API Specification.
+  // [Online]. Available at: https://docs.oracle.com/javase/8/docs/api/java/io/FileWriter.html
+ // [Accessed 18 November 2026].
     public static void readJson() {
         clear();
         try (BufferedReader reader = new BufferedReader(new FileReader(jsonFile))) {
@@ -136,21 +147,19 @@ public class StoredMessages {
     }
 
     // Longest stored message
-    public static String longestMessage() {
-        if (ids.isEmpty()) {
-            return "No stored messages.";
-        }
-        
-        int longest = 0;
-        for (int i = 1; i < messages.size(); i++) {
-            if (messages.get(i).length() > messages.get(longest).length()) {
-                longest = i;
-            }
-        }
-        
-        return messages.get(longest);
+    public static String longestMessageDetails() {
+    if (ids.isEmpty()) {
+        return "No stored messages.";
     }
-
+    int longest = 0;
+    for (int i = 1; i < messages.size(); i++) {
+        if (messages.get(i).length() > messages.get(longest).length()) {
+            longest = i;
+        }
+    }
+    return details(longest);
+    }
+    
     // Search for a message ID (stored and sent messages)
     public static String searchByID(String id) {
         int index = ids.indexOf(id);

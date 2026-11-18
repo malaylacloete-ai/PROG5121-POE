@@ -64,7 +64,7 @@ class StoredMessagesTest {
     @Test
     void displayTheLongestMessage() {
         assertEquals("Where are you? You are late! I have asked you to be on time.",
-                StoredMessages.longestMessage());
+                StoredMessages.longestMessageDetails());
     }
 
     @Test
