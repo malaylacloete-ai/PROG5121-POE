@@ -147,17 +147,30 @@ public class StoredMessages {
     }
 
     // Longest stored message
-    public static String longestMessageDetails() {
-    if (ids.isEmpty()) {
-        return "No stored messages.";
-    }
+    private static int longestIndex() {
     int longest = 0;
     for (int i = 1; i < messages.size(); i++) {
         if (messages.get(i).length() > messages.get(longest).length()) {
             longest = i;
         }
     }
-    return details(longest);
+    return longest;
+}
+
+    // Used by the unit test
+    public static String longestMessage() {
+    if (ids.isEmpty()) {
+        return "No stored messages.";
+    }
+    return messages.get(longestIndex());
+    }
+
+    // Used by the menu
+    public static String longestMessageDetails() {
+    if (ids.isEmpty()) {
+        return "No stored messages.";
+    }
+    return details(longestIndex());
     }
     
     // Search for a message ID (stored and sent messages)
