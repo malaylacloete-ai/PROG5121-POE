@@ -78,7 +78,7 @@ public class QuickChat2 {
                 case 1 -> System.out.println(StoredMessages.displaySendersAndRecipients());
                 case 2 -> {
                     System.out.println("Longest message:");
-                    System.out.println(StoredMessages.longestMessage());
+                    System.out.println(StoredMessages.longestMessageDetails());
                 }
                 case 3 -> {
                     System.out.print("Enter the message ID: ");
